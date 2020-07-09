@@ -26,8 +26,17 @@ mongoose.connect(MONGODB_URI);
 
 
 // Routes
-app.get('/', function (req, res) {
-    res.render('index');
+app.get('/', function(req, res) {
+    db.Article.find({})
+        .then(function(response) {
+            let dbResponse = {
+                articles: response
+            };
+            res.render('index', dbResponse);
+        }).catch(function(err) {
+            console.log(err);
+            res.send(err);
+        });
 });
 
 // Scrape articles
@@ -46,8 +55,10 @@ app.get('/scrape', function(req, res) {
                 .find('p')
                 .text();
             result.link = $(this)
-                .find('a')
+                .find('figure')
+                .children('a')
                 .attr('href');
+
 
             db.Article.create(result)
                 .then(function (dbArticle) {
@@ -61,12 +72,17 @@ app.get('/scrape', function(req, res) {
     });
 });
 
+app.get('/saved', function(req, res) {
+    db.savedArticles.find
+})
+
 app.get('/articles', function (req, res) {
     db.Article.find({})
         .then(function (dbArticle) {
             res.json(dbArticle)
         })
         .catch(function (err) {
+            console.log(err);
             res.json(err);
         });
 });
