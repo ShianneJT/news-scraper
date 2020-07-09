@@ -48,17 +48,20 @@ app.get('/scrape', function(req, res) {
             
             let result = {};
 
-            result.headline = $(this)
+            result.headline = $(element)
                 .find('h2')
                 .text();
-            result.summary = $(this)
+            result.summary = $(element)
                 .find('p')
                 .text();
-            result.link = $(this)
+            result.link = $(element)
                 .find('figure')
                 .children('a')
                 .attr('href');
-
+            result.image = $(element)
+                .find('figure')
+                .find('img, video')
+                .attr('data-chomp-id');
 
             db.Article.create(result)
                 .then(function (dbArticle) {
@@ -72,10 +75,6 @@ app.get('/scrape', function(req, res) {
     });
 });
 
-app.get('/saved', function(req, res) {
-    db.savedArticles.find
-})
-
 app.get('/articles', function (req, res) {
     db.Article.find({})
         .then(function (dbArticle) {
@@ -87,12 +86,13 @@ app.get('/articles', function (req, res) {
         });
 });
 
-// Route for grabbing a specific Article by id, populate it with it's note
+// Route for grabbing an article and associated comments
 app.get('/articles/:id', function(req, res) {
     db.Article.findOne({ _id: req.params.id })
         .populate('comment')
-        .then(function(data) {
-            res.json(data);
+        .then(function(dbArticle) {
+            console.log(dbArticle);
+            res.json(dbArticle);
         }).catch(function(err) {
             console.log(err);
             res.send(err);
@@ -103,7 +103,10 @@ app.get('/articles/:id', function(req, res) {
 app.post('/articles/:id', function(req, res) {
     db.Comment.create(req.body)
         .then(function(dbComment) {
-            return db.Article.findOneAndUpdate({ _id: req.params.id }, { notes: dbComment._id }, { new: true });
+            return db.Article.findOneAndUpdate({ _id: req.params.id }, { $push: { comment: dbComment }}, { new: true });
+        })
+        .then(function (dbArticle) {
+            res.json(dbArticle)
         }).catch(function(err) {
             console.log(err);
             res.json(err);
