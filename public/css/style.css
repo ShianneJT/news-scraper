@@ -1,0 +1,125 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #444444;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+}
+
+/* Header */
+header {
+    background-image: url(/images/gaming-pattern.png);
+    border-bottom: 2px solid #310A31;
+    height: 280px;
+}
+
+.header-title {
+    position: relative;
+    height: 100%;
+}
+
+.header-text {
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.logo {
+    height: 90%;
+    padding-bottom: 24px;
+    float: left;
+}
+
+/* Navbar */
+.navbar {
+    position: absolute;
+    padding: 0px;
+    bottom: 0;
+    left: 0;
+    background-color: #310A31;
+    border-top-right-radius: 20px;
+}
+
+.navbar-nav {
+    border-top-right-radius: 20px;
+    border: 1px solid #310A31;
+}
+
+.nav-item {
+    padding: 4px;
+}
+
+/* Cards */
+.cards {
+    max-width: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.card {
+    width: 33%;
+    color: #444444;
+    background-color: #ededed;
+}
+
+.card-img-top {
+    width: 100%;
+}
+
+.card-text {
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+/* Buttons */
+.btn
+.card-button {
+    border: none;
+    border-radius: 0px;
+}
+
+.card-button {
+    background-color: #310A31;
+    color: white;
+}
+
+.card-buttons {
+    position: absolute;
+    padding: 10px;
+    bottom: 0;
+    left: 0;
+}
+
+.btn {
+    color: white;
+}
+
+.btn:hover {
+    color: #87aade;
+}
+
+.btn:active {
+    color: #ffe680;
+}
+
+
+
+@media (max-width: 575.98px) {
+
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {  }
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {  }
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {  }
