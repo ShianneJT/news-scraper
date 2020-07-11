@@ -1,19 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Dosis&family=PT+Sans+Narrow&family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&family=PT+Sans+Narrow&family=Quicksand&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/a5bfd812ad.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/style.css">
     <title>News Scraper</title>
 </head>
+
 <body>
+    <header>
+        <div class="header-title">
+            <img src="/images/game.png" class="logo" alt="Game controller">
+            <div class="header-text">
+                <h1>Mongo Video Game News!</h1>
+                <h3>Kotaku</h3>
+            </div>
+
+            {{!-- Navbar --}}
+            <div class="navbar navbar-expand-sm">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn" href="/"><i class="fas fa-gamepad fa-2x pr-2"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn" href="/saved"><i class="far fa-save fa-2x pr-2"></i>Saved Articles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn" href="/scrape"><i
+                                class="fas fa-chevron-circle-down fa-2x pr-2"></i>Scrape
+                            New Articles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn" href="#"><i class="far fa-trash-alt fa-2x pr-2"></i>Clear Articles</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
     {{{ body }}}
+
 </body>
 {{!-- Scripts --}}
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="/js/app.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="/js/app.js"></script>
+
 </html>

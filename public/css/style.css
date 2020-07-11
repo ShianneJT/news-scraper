@@ -26,12 +26,13 @@ header {
     position: absolute;
     top: 30%;
     left: 50%;
-    transform: translateX(-50%)
+    transform: translateX(-50%);
+    min-width: 300px;
 }
 
 .logo {
     height: 90%;
-    padding-bottom: 24px;
+
     float: left;
 }
 
@@ -60,7 +61,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-top: 20px;
+
 }
 
 .card {
@@ -71,11 +72,11 @@ header {
 
 .card-img-top {
     width: 100%;
+
 }
 
 .card-text {
-    padding-top: 20px;
-    padding-bottom: 30px;
+
 }
 
 /* Buttons */
@@ -90,15 +91,16 @@ header {
     color: white;
 }
 
-.card-buttons {
+/* .card-buttons {
     position: absolute;
     padding: 10px;
     bottom: 0;
     left: 0;
-}
+} */
 
 .btn {
     color: white;
+    background-color: #310A31;
 }
 
 .btn:hover {
@@ -110,9 +112,10 @@ header {
 }
 
 
-
 @media (max-width: 575.98px) {
-
+    .navbar {
+        
+    }
 }
 
 /* Small devices (landscape phones, less than 768px) */

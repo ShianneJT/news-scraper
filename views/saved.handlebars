@@ -1,8 +1,8 @@
-{{!-- Article cards --}}
 <div class="container cards">
-    {{#each articles}}
-    {{#unless saved}}
 
+    {{#each articles}}
+
+        {{#if saved}}
     <div class="card m-3">
         <div class="card-body">
             <img class="card-img-top" src="https://i.kinja-img.com/gawker-media/image/upload/{{image}}">
@@ -12,11 +12,11 @@
         </div>
         <div class="card-buttons">
             <button id={{_id}} class="btn commentsBtn" data-target="#commentsModal" data-toggle="modal"><i class="far fa-save fa-lg pr-2"></i>Comments</button>
-            <button type="button" class="btn save-article-btn" data-id={{_id}}><i class="far fa-save fa-lg pr-2"></i>Save Article</button>
+            <button type="button" class="btn delete-article-btn" data-id={{_id}}><i class="far fa-save fa-lg pr-2"></i>Remove Article  --change icon--</button>
             {{!-- <button id={{_id}} class="btn commentsBtn" data-toggle="modal" data-target="#commentModal"><i class="far fa-comments fa-lg pr-2"></i>Comments</button> --}}
         </div>
     </div>
-    {{/unless}}
+        {{/if}}
     {{/each}}
-</div>
 
+</div>
