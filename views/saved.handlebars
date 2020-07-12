@@ -1,22 +1,20 @@
+{{!-- Saved cards --}}
 <div class="container cards">
-
     {{#each articles}}
 
         {{#if saved}}
     <div class="card m-3">
         <div class="card-body">
             <img class="card-img-top" src="https://i.kinja-img.com/gawker-media/image/upload/{{image}}">
-            <h4 class="card-title">{{headline}}</h4>
+            <h4 class="card-title">{{title}}</h4>
             <p class="card-text">{{summary}}</p>
             <a href="{{link}}" target="_blank">Read More...</a>
         </div>
         <div class="card-buttons">
             <button id={{_id}} class="btn commentsBtn" data-target="#commentsModal" data-toggle="modal"><i class="far fa-save fa-lg pr-2"></i>Comments</button>
-            <button type="button" class="btn delete-article-btn" data-id={{_id}}><i class="far fa-save fa-lg pr-2"></i>Remove Article  --change icon--</button>
-            {{!-- <button id={{_id}} class="btn commentsBtn" data-toggle="modal" data-target="#commentModal"><i class="far fa-comments fa-lg pr-2"></i>Comments</button> --}}
+            <button type="button" class="btn delete-article-btn" data-id={{_id}}><i class="fas fa-ban fa-lg pr-2"></i>Remove Article</button>
         </div>
     </div>
         {{/if}}
     {{/each}}
-
 </div>

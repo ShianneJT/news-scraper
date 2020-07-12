@@ -21,7 +21,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main', handlebars: allowInsecu
 app.set('view engine', 'handlebars');
 
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/kotakuHeadlines_testing';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/kotakuHeadlines';
 mongoose.connect(MONGODB_URI);
 
 
@@ -135,10 +135,6 @@ app.post('/articles/:id', function(req, res) {
         });
 });
 
-
-
-
-
 // Get all articles
 app.get('/articles', function(req, res) {
     db.Article.find({})
@@ -150,7 +146,7 @@ app.get('/articles', function(req, res) {
         });
 });
 
-
+// Articles by ID
 app.get('/articles/:id', function(req, res) {
     db.Article.findOne({ _id: req.params.id })
         .populate('note')
@@ -161,74 +157,6 @@ app.get('/articles/:id', function(req, res) {
             res.json(err);
         });
 });
-
-
-
-
-
-
-// Adding a comment
-
-// Deleting a comment
-
-
-
-/*
-
-// Routes
-app.get('/', function(req, res) {
-    db.Article.find({})
-        .then(function(response) {
-            let dbResponse = {
-                articles: response
-            };
-            res.render('index', dbResponse);
-        }).catch(function(err) {
-            console.log(err);
-            res.send(err);
-        });
-});
-
-
-// All articles
-app.get('/articles', function (req, res) {
-    db.Article.find({})
-        .then(function (dbArticle) {
-            res.json(dbArticle)
-        })
-        .catch(function (err) {
-            console.log(err);
-            res.json(err);
-        });
-});
-
-// Route for grabbing an article and associated comments
-app.get('/articles/:id', function(req, res) {
-    db.Article.findOne({ _id: req.params.id })
-        .populate('comments')
-        .then(function(dbArticle) {
-            console.log(dbArticle);
-            res.json(dbArticle);
-        }).catch(function(err) {
-            console.log(err);
-            res.send(err);
-        });
-});
-
-// Route for adding a comment
-app.post('/articles/:id', function(req, res) {
-    db.Comment.create(req.body)
-        .then(function(dbComment) {
-            return db.Article.findOneAndUpdate({ _id: req.params.id }, { $push: { comment: dbComment }}, { new: true });
-        })
-        .then(function (dbArticle) {
-            res.json(dbArticle)
-        }).catch(function(err) {
-            console.log(err);
-            res.json(err);
-        });
-});
-*/
 
 // Start the server
 app.listen(PORT, function () {

@@ -32,7 +32,6 @@ header {
 
 .logo {
     height: 90%;
-
     float: left;
 }
 
@@ -61,7 +60,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
+    margin-top: 20px;
 }
 
 .card {
@@ -72,31 +71,25 @@ header {
 
 .card-img-top {
     width: 100%;
-
 }
 
-.card-text {
+.card-title,
+    .card-text {
+        margin-top: 16px;
+}
 
+a:hover {
+    color: #87aade;
+    text-decoration: none;
 }
 
 /* Buttons */
-.btn
-.card-button {
-    border: none;
-    border-radius: 0px;
-}
-
-.card-button {
-    background-color: #310A31;
-    color: white;
-}
-
-/* .card-buttons {
-    position: absolute;
-    padding: 10px;
+.card-buttons {
+    margin-left: 10px;
+    margin-bottom: 10px;
     bottom: 0;
     left: 0;
-} */
+}
 
 .btn {
     color: white;
@@ -110,7 +103,6 @@ header {
 .btn:active {
     color: #ffe680;
 }
-
 
 @media (max-width: 575.98px) {
     .navbar {
